@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 1 - Kalkulator Sederhana</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-lg p-4 text-center" style="width: 450px;">
+            <h3 class="mb-3">Kalkulator Sederhana</h3>
+            <p class="text-muted">
+                Program menggunakan prompt() dan alert().
+            </p>
+
+            <button class="btn btn-primary w-100" onclick="kalkulator()">
+                Mulai Kalkulasi
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function kalkulator() {
+            let angka1 = parseFloat(prompt("Masukkan angka pertama:"));
+            let angka2 = parseFloat(prompt("Masukkan angka kedua:"));
+            let operator = prompt("Masukkan operator (+, -, *, /):");
+
+            if (isNaN(angka1) || isNaN(angka2)) {
+                alert("Input angka harus berupa angka yang valid!");
+                return;
+            }
+
+            let hasil;
+
+            if (operator === "+") {
+                hasil = angka1 + angka2;
+            } else if (operator === "-") {
+                hasil = angka1 - angka2;
+            } else if (operator === "*") {
+                hasil = angka1 * angka2;
+            } else if (operator === "/") {
+                if (angka2 === 0) {
+                    alert("Tidak bisa melakukan pembagian dengan nol!");
+                    return;
+                }
+                hasil = angka1 / angka2;
+            } else {
+                alert("Operator tidak valid! Gunakan +, -, *, atau /");
+                return;
+            }
+
+            alert(
+                "Hasil Perhitungan:\n\n" +
+                angka1 + " " + operator + " " + angka2 +
+                " = " + hasil
+            );
+        }
+    </script>
+
+</body>
+</html>
